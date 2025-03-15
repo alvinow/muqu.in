@@ -223,13 +223,11 @@ class MuquUserFeedPageState extends State<MuquUserFeedPage> {
           VwFieldValue(
               fieldName: "nodeId", valueString: this.widget.folderRecordId),
           VwFieldValue(fieldName: "depth", valueNumber: 1),
-          /*
+
           VwFieldValue(
               fieldName: "depth1FilterObject",
               valueTypeId: VwFieldValue.vatObject,
-              value: { "creatorUserId": {r"$ne" : this.widget.appInstanceParam.loginResponse!.userInfo!.user.recordId} }),
-
-          */
+              value: {  "content.rowData.indexFieldProperties.visibility.valueString":{r"$in":["public"]},   "creatorUserId": {r"$ne" : this.widget.appInstanceParam.loginResponse!.userInfo!.user.recordId} }),
 
           VwFieldValue(
               fieldName: "sortObject",
@@ -238,7 +236,7 @@ class MuquUserFeedPageState extends State<MuquUserFeedPage> {
           VwFieldValue(
               fieldName: "disableUserGroupPOV",
               valueTypeId: VwFieldValue.vatBoolean,
-              valueBoolean: true),
+              valueBoolean: false),
         ]);
 
     /*
@@ -310,13 +308,13 @@ class MuquUserFeedPageState extends State<MuquUserFeedPage> {
               margin: EdgeInsets.all(7),
               height: 200,
               child:
-              NodeListView (showReloadButton: false, toolbarHeight: 40,  showPrintButton: false, mainHeaderTitleTextColor: Colors.white, mainHeaderBackgroundColor: Colors.blueGrey, mainLogoMode: NodeListView.mlmText, mainLogoTextCaption: "Aktivitas Terakhir", appInstanceParam: widget.appInstanceParam, apiCallParam: this.apiCallParamLastCurrentUserActivity(), nodeRowViewerFunction: muquUserPostLastActivityCurrentUserNodeRowViewer, mainLogoImageAsset: this.widget.appInstanceParam.baseAppConfig.generalConfig.mainLogoPath),
+              NodeListView (showReloadButton: true, toolbarHeight: 40,  showPrintButton: false, mainHeaderTitleTextColor: Colors.white, mainHeaderBackgroundColor: Colors.blueGrey, mainLogoMode: NodeListView.mlmText, mainLogoTextCaption: "Aktivitas Terakhir", appInstanceParam: widget.appInstanceParam, apiCallParam: this.apiCallParamLastCurrentUserActivity(), nodeRowViewerFunction: muquUserPostLastActivityCurrentUserNodeRowViewer, mainLogoImageAsset: this.widget.appInstanceParam.baseAppConfig.generalConfig.mainLogoPath),
             ),
             Container(
               margin: EdgeInsets.all(7),
               height: 250,
               child:
-              NodeListView(showReloadButton: false,toolbarHeight: 40,showPrintButton: false, mainHeaderTitleTextColor: Colors.white, mainHeaderBackgroundColor: Colors.blueGrey, mainLogoMode: NodeListView.mlmText, mainLogoTextCaption: "Aktivitas Teman", appInstanceParam: widget.appInstanceParam, apiCallParam: this.apiCallParamCircleLastActivity(), nodeRowViewerFunction: muquUserPostLastActivityUserCircleNodeRowViewer, mainLogoImageAsset: this.widget.appInstanceParam.baseAppConfig.generalConfig.mainLogoPath),
+              NodeListView(showReloadButton: true,toolbarHeight: 40,showPrintButton: false, mainHeaderTitleTextColor: Colors.white, mainHeaderBackgroundColor: Colors.blueGrey, mainLogoMode: NodeListView.mlmText, mainLogoTextCaption: "Aktivitas Teman", appInstanceParam: widget.appInstanceParam, apiCallParam: this.apiCallParamCircleLastActivity(), nodeRowViewerFunction: muquUserPostLastActivityUserCircleNodeRowViewer, mainLogoImageAsset: this.widget.appInstanceParam.baseAppConfig.generalConfig.mainLogoPath),
             )
           ]),
         )
